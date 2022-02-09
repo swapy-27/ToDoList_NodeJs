@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/layout.css">
+    <title>ToDo_List</title>
+</head>
+<body>
+    <section id="container">
+        <section id="header">
+            <%- include('_header');  -%>
+            <%- include('_navigation'); -%>
+        </section>
+        <section id="display-task">
+            <%- body %>
+        </section>
+    </section>
+    <%- script %>
+</body>
+</html>
