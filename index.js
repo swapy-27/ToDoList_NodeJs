@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = 8001;
 
 
 
 
 
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
 //using express router to manage diff client requests
 
