@@ -3,6 +3,8 @@ const app = express();
 const port = 8001;
 const expressLayouts = require('express-ejs-layouts');
 const  bodyParser = require('body-parser')
+//setting up mongods database using mongoose
+const db = require('./config/mongoose');
 
 //allowing our app to use static files from assets forlder gobally
 app.use(express.static('./assets'));
