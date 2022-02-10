@@ -1,10 +1,23 @@
 <link rel="stylesheet" href="/css/navigation.css">
 <div>
-    <form action="" method="post">
-        <textarea></textarea>
-        <option></option>
-        <input type="date">
-        <button type =submit></button>
-        <button><a href=""></a></button>
+    <form action="/add-task"  method="post">
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" cols="50"
+                placeholder="What do you need to do ?"></textarea>
+        </div>
+        <div>
+            <label for="category">Category</label>
+            <select id="category" name="category">
+                <option value="personal">Personal</option>
+                <option value="office">Office</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="date">Date</label>
+            <input id="date" type="date" name="date">
+        </div>
+        <div>
+            <button type=submit>Add Task</button>
+        </div>
     </form>
 </div>

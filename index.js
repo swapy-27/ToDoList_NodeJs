@@ -2,11 +2,15 @@ const express = require("express");
 const app = express();
 const port = 8001;
 const expressLayouts = require('express-ejs-layouts');
-
+const  bodyParser = require('body-parser')
 
 //allowing our app to use static files from assets forlder gobally
 app.use(express.static('./assets'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
+// parse application/json
+app.use(bodyParser.json())
 
 //setting up embeddedjavascript
 app.set('view engine', 'ejs');
