@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%- style %>
     <link rel="stylesheet" href="/css/layout.css">
-    <title>ToDo_List</title>
+    <title>TODO_LIST</title>
 </head>
 <body>
-    <section id="container">
-        <section id="header">
-            <%- include('_header');  -%>
-            <%- include('_navigation'); -%>
-        </section>
-        <section id="display-task">
+    <div id="container">
+        <div id="header-container">
+            <%- include('_header.ejs'); %>
+        </div>
+        <div id="display-container">
             <%- body %>
-        </section>
-    </section>
+        </div>
+    </div>
     <%- script %>
 </body>
 </html>
