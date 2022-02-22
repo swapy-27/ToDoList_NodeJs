@@ -4,14 +4,10 @@ const taskSchema = new mongoose.Schema({
 
     description:{
         type:String
-    },
-    category:{
-        type:String
-    },
-    date:{
-        type:Date
     }
 
+},{
+    timestamps:true
 })
 
 const Task = mongoose.model('Task',taskSchema);

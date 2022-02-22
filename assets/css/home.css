@@ -2,14 +2,13 @@
     width: 500px;
   
     list-style: none;
-    color: whitesmoke;
+    color: #777a92;
 }
 #display li{
     height: 40px;
     width: 100%;
     border-bottom: 1px solid white;
-    background-color: rgb(12 10 35 / 96%);
-    border-radius: 2px;
+    background-color: #25273c;
     font-size: 14px;
 }
 .display-data {
@@ -17,10 +16,47 @@
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+
 }
-.display-data a{
-    color: whitesmoke;
+#display a{
+    color: #777a92;
     text-decoration: none;
+}
+.display-data .status {
+    width:200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.displayed-items{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.displayed-items p{
+    width:400px;
+    overflow-wrap: break-word;
+}
+.displayed-items input {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.displayed-items input :checked {
+    background-color: gray;
 }
 /* 
 .display-item input{

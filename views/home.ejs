@@ -1,10 +1,26 @@
 <link rel="stylesheet" href="/css/home.css">
 <ul id="display">
-    <li class=" display-items">
-        
-    </li>
-    <li class="display-data">
-        <span>ItemsLeft</span>
-        <span><a href=""> Clear completed</a></span>
-    </li>
+    <% for (task of tasks){%>
+        <li class="displayed-items">
+            <input type="checkbox">
+            <p><%= task.description %></p>
+            <a id="delete-task" href="/delete-task/<%= task.id %>">X</a>
+        </li>
+    <%}%>
+        <li class="display-data">
+            <div class="data">
+                <span><%= tasks.length %> </span>
+                <span>ItemsLeft</span>
+            </div>
+            <div class="status">
+                <a href="">All</a>
+                <a href="">Completed</a>
+                <a href="">Active</a>
+            </div>
+            <div class="clear">
+                <span><a href=""> Clear completed</a></span>
+            </div>
+        </li>
 </ul>
+
+<script src="/js/home.js"></script>
