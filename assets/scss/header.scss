@@ -1,0 +1,45 @@
+
+#header-section{
+    z-index: 1;
+    height:100px;
+    width:500px;
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: sans-serif;
+
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+ h1{
+    letter-spacing: 0.5rem;
+    }
+}
+
+.enter-description{
+    height: 40px;
+    width:100%;
+    border-radius: 10px;
+
+    input{
+
+        height:100%;
+        width:100%;
+        border : none;
+        border-radius: 10px;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font-size: 14 px;
+        color:#777a92;
+
+        }
+    }
+
+}

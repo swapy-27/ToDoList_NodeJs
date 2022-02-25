@@ -1,0 +1,33 @@
+#display{
+    width:500px;
+    
+    // overflow-y: scroll;
+    li{
+        color:#777a92;
+        font-family: sans-serif;
+        width:100%;
+        height:50px;
+        list-style: none;
+    }
+
+
+    .to-do-items{
+       
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid white;
+        .to-do-item-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+    }
+
+
+    .display-data{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

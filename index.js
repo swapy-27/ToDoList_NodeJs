@@ -6,6 +6,18 @@ const  bodyParser = require('body-parser')
 //setting up mongods database using mongoose
 const db = require('./config/mongoose');
 
+//using scss 
+const sassMiddleware = require('node-sass-middleware');
+
+app.use(sassMiddleware({
+    /* Options */
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle:'extended',
+    prefix:  '/css'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
+
 //allowing our app to use static files from assets forlder gobally
 app.use(express.static('./assets'));
 // parse application/x-www-form-urlencoded

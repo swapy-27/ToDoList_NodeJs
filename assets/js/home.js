@@ -1,10 +1,11 @@
+
+
+
 {
+    let theme = true
 
     let createTask = function (text) {
-
-
-
-        // send ajasx request to server and add data to display
+        // send ajax request to server and add data to display
         $.ajax({
             type: "post",
             url: '/add-task',
@@ -12,9 +13,10 @@
             success: (data) => {
 
                 let newElement = createTaskElement(data.task.description, data.task._id);
-                newElement.addClass('displayed-items')
+                newElement.addClass('to-do-items')
                 $('#display').prepend(newElement)
-                deleteTask($('#delete-task', newElement))
+                deleteTask($('.delete-task', newElement))
+                toggleTask($('input[name="task_status"]'), newElement);
             },
             error: (error) => {
                 console.log(error);
@@ -23,14 +25,20 @@
     }
 
 
-
     let createTaskElement = function (task, taskID) {
 
         return $(`
         <li id="task-${taskID}">
-            <input type="checkbox">
-            <p>${task}</p>
-            <a id="delete-task" href="/delete-task/${taskID}">X</a>
+        <div class="to-do-item-container">
+            
+            <label>
+            <input type="checkbox" value="${taskID}" name="task_status">
+        
+                ${task} 
+           
+        </label>
+        </div>
+            <a class="delete-task" href="/delete-task/${taskID}">X</a>
         </li>
         `)
 
@@ -57,16 +65,57 @@
     }
 
 
+    //night theme
+    $('#theme-change').on('click', function (e) {
+        console.log('hii')
+        e.preventDefault();
 
 
+        if (theme) {
+            $('#container').removeClass('night-theme');
+            $('#container').addClass('day-theme');
+            $("#theme-change").attr("src", "/images/icon-moon.svg");
+            theme = false;
+        }
+        else {
+            $('#container').removeClass('day-theme');
+            $('#container').addClass('night-theme');
+            $("#theme-change").attr("src", "/images/icon-sun.svg");
+            theme = true
+        }
 
+    })
 
+    // setting Ajax delete functionallity After reloading a page also 
+    let settingDeleteOnReload = function () {
 
+        let tasks = $('.delete-task');
 
+        for (t of tasks) {
+            deleteTask(t);
+        }
+
+    }
+    let toggleTask = function (ele) {
+        console.log(ele);
+        $(ele).on('click', function (e) {
+            let task_Id = $(this).val();
+            let data_value = false;
+            if ($(this).is(':checked')) {
+                data_value = true
+            }
+            $.ajax({
+                type: "POST",
+                url: `/toggle-task/${task_Id}`,
+                data: {
+                    toggle: data_value
+                }
+            })
+        })
+    }
 
 
     $(document).on('keypress', function (e) {
-
         if (e.which == 13) {
             let text = $('#task-description').val();
             if (text != '') {
@@ -75,6 +124,27 @@
         }
     })
 
+    
+    let settindUpToggleOnRefresh =  function(){
+            let elements = $('input[name="task_status"]');
+            console.log(elements)
+
+            for (ele of elements){
+                toggleTask(ele);
+            }
+       
+        
+    }
 
 
+
+
+
+
+
+    settindUpToggleOnRefresh();
+    // settingDeleteOnReload();
 }
+
+
+

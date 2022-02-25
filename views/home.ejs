@@ -1,26 +1,34 @@
 <link rel="stylesheet" href="/css/home.css">
 <ul id="display">
-    <% for (task of tasks){%>
-        <li class="displayed-items">
-            <input type="checkbox">
-            <p><%= task.description %></p>
-            <a id="delete-task" href="/delete-task/<%= task.id %>">X</a>
+    <% for (let task=tasks.length-1; task >=0  ; task--){%>
+        <li class="to-do-items">
+            <div class="to-do-item-container"> 
+                <label>
+                    <input type="checkbox" value="<%= tasks[task].id %>" name="task_status">
+                        <%= tasks[task].description %>
+                </label>
+            </div>
+            <a class="delete-task" href="/delete-task/<%= tasks[task].id %>">X</a>
+
+
         </li>
-    <%}%>
-        <li class="display-data">
-            <div class="data">
-                <span><%= tasks.length %> </span>
-                <span>ItemsLeft</span>
-            </div>
-            <div class="status">
-                <a href="">All</a>
-                <a href="">Completed</a>
-                <a href="">Active</a>
-            </div>
-            <div class="clear">
-                <span><a href=""> Clear completed</a></span>
-            </div>
-        </li>
+        <%}%>
+            <li class="display-data">
+                <div class="data">
+                    <span>
+                        <%= tasks.length %>
+                    </span>
+                    <span>ItemsLeft</span>
+                </div>
+                <div class="status">
+                    <a href="/">All</a>
+                    <a href="/completed-tasks">Completed</a>
+                    <a href="/active-tasks">Active</a>
+                </div>
+                <div class="clear">
+                    <span><a href="/clear/completed-tasks"> Clear completed</a></span>
+                </div>
+            </li>
 </ul>
 
 <script src="/js/home.js"></script>
